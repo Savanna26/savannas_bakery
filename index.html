@@ -1,0 +1,354 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savanna's Bakery | Menu &amp; Pre-Orders</title>
+<style>:root {
+      --bg: #f4f8f4;
+      --card: #ffffff;
+      --primary: #2d5a3c;
+      --primary-hover: #1e3f29;
+      --accent: #cde0d2;
+      --text: #1b2e22;
+      --muted: #526e5c;
+      --highlight-bg: #e7f2ea;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #2d5a3c 0%, #1b3b26 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.92;
+      color: #e1efe5;
+    }
+    .info-banner {
+      max-width: 1100px;
+      margin: 1.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .info-box {
+      background-color: var(--highlight-bg);
+      border: 2px solid var(--accent);
+      border-left: 6px solid var(--primary);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(27, 59, 38, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .info-text {
+      flex: 1;
+      min-width: 260px;
+    }
+    .info-box h2 {
+      border-bottom: none;
+      margin-bottom: 0.4rem;
+      padding-bottom: 0;
+      font-size: 1.3rem;
+    }
+    .info-phone {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+    .info-phone a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .info-phone a:hover {
+      text-decoration: underline;
+    }
+    .qr-group {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .qr-card {
+      background: #ffffff;
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      text-align: center;
+      width: 155px;
+      box-shadow: 0 2px 6px rgba(27, 59, 38, 0.05);
+    }
+    .qr-card img {
+      width: 125px;
+      height: 125px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 0.4rem;
+      border-radius: 6px;
+    }
+    .qr-card span {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .qr-card a {
+      display: inline-block;
+      margin-top: 0.2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 850px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .category-section {
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    .category-pricing {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .menu-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .menu-item {
+      background: var(--card);
+      padding: 1.15rem;
+      border-radius: 10px;
+      border: 1px solid #e3ede6;
+      box-shadow: 0 2px 8px rgba(27, 59, 38, 0.04);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .item-info {
+      flex: 1;
+      min-width: 180px;
+    }
+    .item-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    .item-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    select, .custom-choice-input {
+      padding: 0.5rem;
+      border: 1px solid #b5cebc;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    select:focus, .custom-choice-input:focus, .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .custom-choice-input {
+      width: 155px;
+    }
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.55rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+    .order-box {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #dce8df;
+      box-shadow: 0 4px 12px rgba(27, 59, 38, 0.08);
+      height: fit-content;
+      position: sticky;
+      top: 1.5rem;
+    }
+    .cart-items {
+      margin-bottom: 1rem;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+    .cart-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e7f0e9;
+      font-size: 0.9rem;
+      gap: 0.5rem;
+    }
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #c0392b;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 0.4rem;
+    }
+    .total-row {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+      padding-top: 0.5rem;
+      border-top: 2px solid var(--accent);
+    }
+    .form-group {
+      margin-bottom: 0.9rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.55rem;
+      border: 1px solid #b5cebc;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 0.85rem;
+      font-size: 1.05rem;
+    }
+    .payment-reminder {
+      font-size: 0.85rem;
+      background: var(--highlight-bg);
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-top: 0.9rem;
+      border: 1px solid var(--accent);
+    }
+    .cottage-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.9rem;
+      line-height: 1.4;
+    }</style>
+<header>
+  <h1>Savanna's Bakery</h1>
+  <p>Homemade Cookies, Brownies &amp; Cupcakes • Baked Fresh to Order</p>
+</header>
+  <!-- ORDER & PAYMENT INFORMATION BANNER -->
+<div class="info-banner">
+  <div class="info-box">
+    <div class="info-text">
+      <h2>Order &amp; Payment Information</h2>
+      <div class="info-phone">Text Orders To: 
+        <a href="sms:9032093326">(903) 209-3326</a>
+      </div>
+      <p>Please text me your name and order, and let me know if you have any dietary restrictions or food allergies. 
+        <strong>Orders will not be processed until payment is received.</strong> Please put your name in the spot for sending the money so I can confirm your payment.
+      </p>
+    </div>
+      <!-- QR CODES SECTION -->
+    <div class="qr-group">
+      <div class="qr-card">
+        <img src="cashapp-qr.png" alt="Cash App QR Code">
+        <span>Cash App</span>
+        <a href="https://cash.app/$savannahoward3" target="_blank">$savannahoward3</a>
+      </div>
+      <div class="qr-card">
+        <img src="qr-1.png" alt="Payment QR Code">
+        <span>Scan to Pay</span>
+        <span style="font-size: 0.75rem; font-weight: normal; color: var(--muted);">Include your name!</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container"><!-- MENU SECTION -->
+  <main id="menu-container"></main>
+    <!-- ORDER SECTION -->
+  <aside class="order-box">
+    <h2>Your Order</h2>
+    <div class="cart-items" id="cart-items">
+      <p style="color: var(--muted); font-size: 0.92rem;">Select your options and click "+ Add" to build your order.</p>
+    </div>
+    <div class="total-row">
+      <span>Estimated Total:</span>
+      <span id="cart-total">$0.00</span>
+    </div>
+    <form id="order-form">
+      <div class="form-group">
+        <label for="cust-name">Your Name *</label>
+        <input type="text" id="cust-name" required="" placeholder="Jane Doe">
+      </div>
+      <div class="form-group">
+        <label for="cust-phone">Phone Number *</label>
+        <input type="tel" id="cust-phone" required="" placeholder="(903) 555-0199">
+      </div>
+      <div class="form-group">
+        <label for="pickup-date">Preferred Pickup Date &amp; Time *</label>
+        <input type="datetime-local" id="pickup-date" required="">
+      </div>
+      <div class="form-group">
+        <label for="cust-notes">Dietary Restrictions / Food Allergies / Notes</label>
+        <textarea id="cust-notes" rows="2" placeholder="Please list any dietary restrictions, allergies, or special requests..."></textarea>
+      </div>
+      <button type="submit" class="btn submit-btn">Email Order Request</button>
+    </form>
+    <div class="payment-reminder">
+      <strong>Reminder:</strong> You can also text your order directly to 
+      <strong>(903) 209-3326</strong>. Orders are processed once payment is received—include your name on the payment note!
+    </div>
+    <p class="cottage-note">This food is made in a home kitchen and is not inspected by the Department of State Health Services or a local health department.</p>
+  </aside>
+</div>
+<script>const BAKERY_EMAIL = "savannasbakery26@gmail.com";
+    const menuData = [
+      {
+        category: "Seasonal Menu",</script>
